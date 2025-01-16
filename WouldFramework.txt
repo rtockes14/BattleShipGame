@@ -4,4 +4,3 @@ O -- Open up the requirements
 U -- User interface design
 L -- Logic design
 D -- Data design
-
