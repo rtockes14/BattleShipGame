@@ -22,7 +22,7 @@ Identify who the winner is
 Exit the Application
 
 
-	---ADDTL QUESTIONS/REQUIREMENTS---
+---ADDTL QUESTIONS/REQUIREMENTS---
 Is it the same console or two different consoles working together?
 == Same Console
 Does the other player get one last chance after being sunk? 
@@ -56,8 +56,16 @@ Will we add a computer player?
 12. Accept user names (add admiral to title)
 
 
----USER INTERFACE---
-Console 
+
+---OBJECTS---
+
+GridSpot
+	Shot Letter
+	Shot Number
 
 
+List<GridSpot> user1Ships
+List<GridSpot> user1Hits
 
+List<GridSpot> user2Ships
+List<GridSpot> user2Hits

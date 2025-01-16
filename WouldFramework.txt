@@ -1,6 +1,36 @@
-
 W -- Walk through the project
 O -- Open up the requirements
 U -- User interface design
 L -- Logic design
 D -- Data design
+
+
+		UI DESIGN Continued:
+
+	   | A1 | A2 | A3 | A4 | A5
+	---+----+----+----+----+---
+	B1 |    |    |    |    |   
+	---+----+----+----+----+---
+	B2 |    |    |    |    |
+	---+----+----+----+----+---
+	B3 |    |    |  O |    |
+	---+----+----+----+----+---
+	B4 |  X |    |    |    |
+	---+----+----+----+----+---
+	B5 |    |    |    |    |
+
+
+		LOGIC Continued:
+
+	Clear Display
+	Method: Asking for name
+	Method: Get ship placement
+	Method: Determine if valid spot
+	Storing ship information: List per user
+	Storing shot information: List per user
+	Method: Create the grid for each user
+	Method: Print out grid
+	Method: Fire on opponent
+	Method: Determine if a shot can be taken & outcome
+	Method: Display score
+	Method: Print winner and shots taken

@@ -1,12 +1,39 @@
+---LOGIC DESIGN---
+Welcom Message
+List rules 
+Print Grid with legend (X-Miss, O-Hit)
+Ask user 1 for their name
+Ask user 1 for 5 ship placements
+	Ask for placement
+	Determine if it's a valid spot
+	Store
+Ask user 2 for their name
+	Ask for placement
+	Determine if it's a valid spot
+	Store
+Display grid of where user 1 has fired
+Ask user 1: Where would you like to fire
+	Verify Valid spot
+	Check results
+	Store shot
+Display the score (user 1: 2 ships left, user 2: 4 ships left)
+Repleat with user 2
+Loop until someone wins
+Print out Winner's name and number of shots taken
+Wait for user to say they are done
+Exit
+
+
 ---DATA DESIGN---
-Array or list of coordinates for friendly vessels
-Array or list of shots fired -- must be list to grow
+User's name
+Array or list of coordinates for friendly vessels - List<GridSpot>
+Array or list of shots fired -- must be list to grow -List<GridSpot>
 Shot object
 	Current shot number
 	Current shot location
+	Bool True/False for hit (Possible enum?)
 Round number
 2D matrix?
-
 
 Nested for loop with cw("|" + 2DmatrixIndex + "|")
 Starting/Ending row + Every other row -- cw("---") per loop above
