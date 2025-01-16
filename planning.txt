@@ -1,0 +1,13 @@
+---DATA DESIGN---
+Array or list of coordinates for friendly vessels
+Array or list of shots fired -- must be list to grow
+Shot object
+	Current shot number
+	Current shot location
+Round number
+2D matrix?
+
+
+Nested for loop with cw("|" + 2DmatrixIndex + "|")
+Starting/Ending row + Every other row -- cw("---") per loop above
+

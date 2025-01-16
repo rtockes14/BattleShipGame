@@ -1,0 +1,63 @@
+
+---GENERAL OVERVIEW---
+Build a 2 player console game that has roots in battleship
+Use a 25 spot grid (A1 - E5)
+Each player will place 5 pegs on the board to simulate their 5 ships
+Players will then take turns firing on their opponent's ships.
+The first person to sink all 5 ships wins
+
+
+---FLOW---
+Two players open up the console
+Ask user 1 for where to place their ships
+Ask User 2 for where to place their ships
+Ask User 1 for a shot
+	Determine hit or miss
+	Determine if game is over
+Ask User 2 for a shot
+	Determine hit or miss
+	Determine if game is over
+Repeat until someone wins
+Identify who the winner is
+Exit the Application
+
+
+	---ADDTL QUESTIONS/REQUIREMENTS---
+Is it the same console or two different consoles working together?
+== Same Console
+Does the other player get one last chance after being sunk? 
+== No
+Do we want to capture / display stats?
+== Just how many shots it took to win
+Only one ship per spot
+Do we alow a player to shoot the same spot twice?
+== No
+Do we show a visual of the grid?
+== Yest
+Do we store game data?
+== No
+Are we ever going to change the number of players?
+== Maybe
+Will we add a computer player?
+== Maybe
+
+---FULL REQUIREMENTS---
+1. 2 player game
+2. 25 spot grid
+3. Each player gets 5 ships
+4. Each ship takes up one spot
+5. Players take turns firing
+6. First person to sink all 5 wins
+7. One Console for everyone
+8. No completing the round after 5 sunk ships
+9. Show a visual of the grid with hits and misses
+10. Do not allow the user to shoot the same spot twice
+11. Must have Rules listed before game begins
+12. Accept user names (add admiral to title)
+
+
+---USER INTERFACE---
+Console 
+
+
+
