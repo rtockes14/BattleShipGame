@@ -1,24 +1,24 @@
 
-__________         __    __  .__             _________.__    .__              
-\______   \_____ _/  |__/  |_|  |   ____    /   _____/|  |__ |__|_____  ______
- |    |  _/\__  \\   __\   __\  | _/ __ \   \_____  \ |  |  \|  \____ \/  ___/
- |    |   \ / __ \|  |  |  | |  |_\  ___/   /        \|   Y  \  |  |_> >___ \ 
- |______  /(____  /__|  |__| |____/\___  > /_______  /|___|  /__|   __/____  >
-        \/      \/                     \/          \/      \/   |__|       \/ 
+ __________         __    __  .__             _________.__    .__              
+ \______   \_____ _/  |__/  |_|  |   ____    /   _____/|  |__ |__|_____  ______
+  |    |  _/\__  \\   __\   __\  | _/ __ \   \_____  \ |  |  \|  \____ \/  ___/
+  |    |   \ / __ \|  |  |  | |  |_\  ___/   /        \|   Y  \  |  |_> >___ \ 
+  |______  /(____  /__|  |__| |____/\___  > /_______  /|___|  /__|   __/____  >
+         \/      \/                     \/          \/      \/   |__|       \/ 
 
 
-Battle Ships is a 2 Player turn based grid-coordinate game.  Each Player has 5 ships in their fleet.  You must race to sink 
-all of the enemy's vessels before you're sunk yourself.  
+ Battle Ships is a 2 Player turn based grid-coordinate game.  Each Player has 5 ships in their fleet.  You must race to sink 
+ all of the enemy's vessels before you're sunk yourself.  
 
 
-The grid is based on a 5 letter, 5 number system -- A1 being the top left-most corner and E5 being the bottom right-most corner.  
+ The grid is based on a 5 letter, 5 number system -- A1 being the top left-most corner and E5 being the bottom right-most corner.  
 
 
 	   |  A  |  B  |  C  |  D  |  E
 	---+-----+-----+-----+-----+-----
 	 1 |  O  |     |  V  |     |           X - Hit / Destroyed Ship
 	---+-----+-----+-----+-----+-----
-	 2 |  X  |  V  |     |     |
+	 2 |     |  V  |     |     |
 	---+-----+-----+-----+-----+-----      V - Friendly Ship
 	 3 |     |     |  O  |     |  V
 	---+-----+-----+-----+-----+-----
@@ -27,13 +27,13 @@ The grid is based on a 5 letter, 5 number system -- A1 being the top left-most c
 	 5 |     |  V  |     |  X  |
 
 
-You must place 5 ships.  Only 1 ship per tile, and any direct hit will sink a vessel.  
+ You must place 5 ships.  Only 1 ship per tile, and any direct hit will sink a vessel.  
 
 
-When either player hits the final enemy ship, the opposing player will have one last opportunity to fire back.  
+ When either player hits the final enemy ship, the opposing player will have one last opportunity to fire back.  
 
 
-Press Enter to continue..
+ Press Enter to continue..
 
 
 

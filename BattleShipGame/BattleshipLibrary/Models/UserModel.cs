@@ -12,7 +12,7 @@ namespace BattleshipLibrary.Models
 
 		private List<GridSpot> _shipLocations;
 
-		private List<GridSpot> _shotsFired;
+		private List<GridSpot> _gridSpots;
 
         public List<GridSpot> ShipLocations
         {
@@ -30,21 +30,21 @@ namespace BattleshipLibrary.Models
 			}
 		}
 
-		public List<GridSpot> ShotsFired
+		public List<GridSpot> gridSpots
 		{
-			get { return _shotsFired; }
+			get { return _gridSpots; }
 			set
 			{
 				if (value != null)
 				{
-					_shotsFired.AddRange(value);
+					_gridSpots.AddRange(value);
 				}
 			}
 		}
 
 		public void AddShotFired(GridSpot shot)
 		{
-			_shotsFired.Add(shot);
+			_gridSpots.Add(shot);
 		}
 
 

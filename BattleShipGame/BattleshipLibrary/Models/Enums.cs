@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace BattleshipLibrary.Models
 {
-        public enum Status
+        public enum GridSpotStatus
         {
-            Miss, 
-            Hit, 
+            Empty,
             Ship,
-            Empty
+            Hit,
+            Miss
         }
 }
