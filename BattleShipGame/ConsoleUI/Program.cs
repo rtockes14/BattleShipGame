@@ -12,24 +12,27 @@ namespace ConsoleUI
         {
             bool winner = false;
 
-            PrintGameRules();
-            Console.ReadLine();
+            //PrintGameRules();
+            //Console.ReadLine();
 
-            UserModel user1 = CreatePlayer(1);
-            List<GridSpot> user1Grid = GetShipLocations(); // Check for valid placement
+            //UserModel user1 = CreatePlayer(1);
+            //List<GridSpot> user1Grid = GetShipLocations(); // Check for valid placement
             
-            UserModel user2 = CreatePlayer(2);
+            //UserModel user2 = CreatePlayer(2);
             List<GridSpot> user2Grid = GetShipLocations(); // Check for valid placement
 
             while (!winner)
             {
-                //PrintEnemyGrid(); // Conceal enemy ship location (Only print Hits & Misses)
+                PrintEnemyGrid(user2Grid); // Conceal enemy ship location (Only print Hits & Misses)
                 //PrintFriendlyGrid(); // Print active ship locations, sunk ships, Enemy Hits & Misses
-                
+
                 //AskUserForShot();
                 //DetermineGridStatus();
+                Console.ReadLine();
             }
         }
+
+
 
         public static void PrintGameRules()
         {
@@ -77,13 +80,14 @@ namespace ConsoleUI
             string gridTile = "";
             List<GridSpot> shipPlacements = new List<GridSpot>();
             List<string> strCoordinates = new List<string>();
-            GridSpot tile = new GridSpot();
+
 
             Console.Clear();
             Console.Write(" Where would you like to sail your ships? (Enter a valid grid coordinate [A1-E5]...\n\n ");
 
             for (int i = 0; i < 5; i++)
             {
+                GridSpot tile = new GridSpot();
                 do
                 {
                     Console.Write($"\tPlease enter the coordinate of ship #{counter}:\t");
@@ -94,10 +98,21 @@ namespace ConsoleUI
                 tile.Coordinate = gridTile;
                 tile.Letter = gridTile[0].ToString();
                 tile.Number = int.Parse(gridTile[1].ToString());
+                tile.Status = GridSpotStatus.Ship;
                 shipPlacements.Add(tile);
                 strCoordinates.Add(gridTile);
                 counter++;
             }
+            //int index = 0;
+            //foreach (GridSpot shipSpot in shipPlacements)
+            //{
+            //    Console.WriteLine(shipPlacements[index].Coordinate);
+            //    Console.WriteLine(shipPlacements[index].Letter);
+            //    Console.WriteLine(shipPlacements[index].Number);
+            //    Console.WriteLine(shipPlacements[index].Status);
+            //    index++;
+            //}
+            Console.ReadLine();
 
             return shipPlacements;
         }
@@ -131,6 +146,62 @@ namespace ConsoleUI
             }
 
             return true;
+        }
+
+        private static void PrintEnemyGrid(List<GridSpot> enemyGrid)
+        {
+            //GridSpot[,] matrix = new GridSpot[5, 5];
+            enemyGrid.Sort();
+
+            bool isEnemy = true;
+            int rowNumCounter = 1;
+            int index = 0;
+            Console.Clear();
+            foreach (var enemy in enemyGrid)
+            {
+                    Console.WriteLine(enemy.Coordinate);
+            }
+
+            Console.WriteLine("\n\n\t\t--- ENEMY GRID ---\n");
+            Console.WriteLine("\t   " + "|" + "  A  " + "|" + "  B  " + "|" + "  C  " + "|" + "  D  " + "|" + "  E  ");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("\t---+-----+-----+-----+-----+-----");
+                Console.Write($"\t {rowNumCounter} ");
+                for (int j = 0; j < 5; j++)
+                {
+                    string marker = CheckHitOrMiss(enemyGrid, index, rowNumCounter, isEnemy);
+                    Console.Write("|  " + marker + "  ");
+                    index++;
+                }
+                Console.WriteLine("");
+                rowNumCounter++;
+            }
+            Console.ReadLine();
+        }
+
+        private static string CheckHitOrMiss(List<GridSpot> gridCoordinate, int index, int rowNumCounter, bool isEnemy)
+        {
+            string output = " ";
+            switch (gridCoordinate[index].Status)
+            {
+                case GridSpotStatus.Empty:
+                    output = " "; break;
+                case GridSpotStatus.Miss:
+                    output = "O"; break;
+                case GridSpotStatus.Hit:
+                    output = "X"; break;
+                case GridSpotStatus.Ship:
+                    if (isEnemy)
+                    {
+                        output = " "; break;
+                    }
+                    else
+                    {
+                        output = "V"; break;
+                    }
+            }
+            return output;
         }
     }
 }
