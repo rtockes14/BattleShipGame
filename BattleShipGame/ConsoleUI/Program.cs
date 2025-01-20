@@ -23,7 +23,8 @@ namespace ConsoleUI
 
             while (!winner)
             {
-                PrintEnemyGrid(user2Grid); // Conceal enemy ship location (Only print Hits & Misses)
+                GridSpot[,] user2Matrix = PopulateMatrix(user2Grid);
+                PrintEnemyGrid(user2Grid,user2Matrix); // Conceal enemy ship location (Only print Hits & Misses)
                 //PrintFriendlyGrid(); // Print active ship locations, sunk ships, Enemy Hits & Misses
 
                 //AskUserForShot();
@@ -148,29 +149,25 @@ namespace ConsoleUI
             return true;
         }
 
-        private static void PrintEnemyGrid(List<GridSpot> enemyGrid)
+        private static void PrintEnemyGrid(List<GridSpot> enemyGrid, GridSpot[,] matrix)
         {
-            //GridSpot[,] matrix = new GridSpot[5, 5];
-            enemyGrid.Sort();
-
             bool isEnemy = true;
             int rowNumCounter = 1;
             int index = 0;
             Console.Clear();
-            foreach (var enemy in enemyGrid)
-            {
-                    Console.WriteLine(enemy.Coordinate);
-            }
-
+            //foreach (var enemy in enemyGrid)
+            //{
+            //        Console.WriteLine(enemy.Coordinate);
+            //}
             Console.WriteLine("\n\n\t\t--- ENEMY GRID ---\n");
             Console.WriteLine("\t   " + "|" + "  A  " + "|" + "  B  " + "|" + "  C  " + "|" + "  D  " + "|" + "  E  ");
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("\t---+-----+-----+-----+-----+-----");
-                Console.Write($"\t {rowNumCounter} ");
+                Console.Write($"\t {rowNumCounter} |");
                 for (int j = 0; j < 5; j++)
                 {
-                    string marker = CheckHitOrMiss(enemyGrid, index, rowNumCounter, isEnemy);
+                    string marker = CheckHitOrMiss(matrix, index, rowNumCounter, isEnemy);
                     Console.Write("|  " + marker + "  ");
                     index++;
                 }
@@ -180,10 +177,12 @@ namespace ConsoleUI
             Console.ReadLine();
         }
 
-        private static string CheckHitOrMiss(List<GridSpot> gridCoordinate, int index, int rowNumCounter, bool isEnemy)
+        private static string CheckHitOrMiss(GridSpot[,] matrix, int i, int j, bool isEnemy)
         {
+            GridSpot[,] newMatrix = new GridSpot[5,5];
+            newMatrix = matrix;
             string output = " ";
-            switch (gridCoordinate[index].Status)
+            switch (newMatrix[i, j].Status)
             {
                 case GridSpotStatus.Empty:
                     output = " "; break;
@@ -202,6 +201,35 @@ namespace ConsoleUI
                     }
             }
             return output;
+        }
+
+        private static GridSpot[,] PopulateMatrix(List<GridSpot> gridCoordinates)
+        {
+            int index = 0;
+            GridSpot[,] matrix = new GridSpot[5, 5];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (gridCoordinates[index].Number == i+1)
+                    {
+                        matrix[i, j] = gridCoordinates[index];
+                        Console.Write($"[{matrix[i, j].Status}]");
+                    }
+                    else
+                    {
+                        Console.Write("[ ]");
+                    }
+                    if (index != 4)
+                    {
+                        index++;
+                    }
+                }
+                index = 0;
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+            return matrix;
         }
     }
 }

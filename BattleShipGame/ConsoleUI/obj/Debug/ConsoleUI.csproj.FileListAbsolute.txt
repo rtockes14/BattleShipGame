@@ -8,3 +8,13 @@ C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\Battle
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.exe
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.pdb
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\bin\Debug\BattleshipLibrary.dll
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\bin\Debug\BattleshipLibrary.pdb
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.csproj.AssemblyReference.cache
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.csproj.Up2Date
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\ConsoleUI\obj\Debug\ConsoleUI.pdb

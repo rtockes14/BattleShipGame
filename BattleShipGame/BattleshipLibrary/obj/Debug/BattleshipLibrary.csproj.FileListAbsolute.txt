@@ -4,3 +4,9 @@ C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\Battle
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.dll
 C:\Users\Randa\OneDrive\Desktop\c#classpractice\Battleship\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.pdb
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\bin\Debug\BattleshipLibrary.dll
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\bin\Debug\BattleshipLibrary.pdb
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.csproj.AssemblyReference.cache
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.dll
+C:\Users\Randa\OneDrive\Documents\GitHub\BattleShipGame\BattleShipGame\BattleshipLibrary\obj\Debug\BattleshipLibrary.pdb
