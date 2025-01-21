@@ -9,7 +9,8 @@ namespace BattleshipLibrary.Models
         Empty,
         Ship,
         Hit,
-        Miss
+        Miss,
+        Shot
     }
 
     public enum TileLetterIndex
