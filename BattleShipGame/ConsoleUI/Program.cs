@@ -12,37 +12,101 @@ namespace ConsoleUI
         {
             bool winner = false;
             string productOfAttack = "";
+            UserModel victor = new UserModel();
 
-            //PrintGameRules();
-            //Console.ReadLine();
+            PrintGameRules();
+            Console.ReadLine();
 
             UserModel user1 = CreatePlayer(1);
             List<GridSpot> user1Grid = GetShipLocations(user1); // Check for valid placement
             
             UserModel user2 = CreatePlayer(2);
             List<GridSpot> user2Grid = GetShipLocations(user2); // Check for valid placement
+
             // Create a 2D Matrix for user 1 with friendly ship coordinates
             GridSpot[,] user1Matrix = PopulateMatrix(user1Grid);
-
             // Create a 2D Matrix for user 2 with friendly ship coordinates
             GridSpot[,] user2Matrix = PopulateMatrix(user2Grid);
 
             while (!winner)
             {
+                PlayerHoldingScreen(user1);
                 PrintEnemyGrid(user2Grid,user2Matrix); // Conceal enemy ship location (Only print Hits & Misses)
                 PrintFriendlyGrid(user1Grid,user1Matrix); 
 
                 GridSpot user1Shot = new GridSpot();
                 user1Shot = AskUserForShot(user1);
-                (user2Matrix, productOfAttack) = CheckHitOrMiss(user1Shot, user2Matrix);
+                (user2Matrix, productOfAttack) = CheckHitOrMiss(user1Shot, user2Matrix, user1);
+
                 PrintResults(productOfAttack, user1, user1Shot);
 
                 Console.ReadLine();
+                
+                PlayerHoldingScreen(user2);
+                PrintEnemyGrid(user1Grid,user1Matrix); // Conceal enemy ship location (Only print Hits & Misses)
+                PrintFriendlyGrid(user2Grid,user2Matrix); 
+
+                GridSpot user2Shot = new GridSpot();
+                user2Shot = AskUserForShot(user2);
+                (user1Matrix, productOfAttack) = CheckHitOrMiss(user2Shot, user1Matrix, user2);
+
+                PrintResults(productOfAttack, user2, user2Shot);
+
+
+                (winner, victor) = CheckIfWinner(user1, user2);
+
+                Console.ReadLine();
             }
+            PrintStats(victor);
+            Console.ReadLine();
         }
+
+        private static void PrintStats(UserModel victor)
+        {
+            Console.WriteLine($"\n\t\tWinner:\t{victor.UserName}");
+            Console.WriteLine($"\n\t\tShots Fired:\t{victor.ShotCounter}");
+            //Console.WriteLine($"\n\t\tShips Lost:\t{victor.ShipsLost}");
+            //Console.WriteLine($"\n\t\tTotal Rounds:\t{gameModel.RoundCounter}");
+        }
+
+        private static void PlayerHoldingScreen(UserModel user)
+        {
+            Console.Clear();
+            Console.WriteLine($"\tAdmiral {user.UserName}, it's your turn.  Sending you an updated Grid now!  \n\n");
+            Console.WriteLine("\t\t\tPress Enter when you're ready.  ");
+            Console.ReadLine();
+        }
+
+        private static (bool winner, UserModel victor) CheckIfWinner(UserModel user1, UserModel user2)
+        {
+            bool winner = false;
+            UserModel victor = new UserModel();
+            if (user1.ShipsSunk == 5)
+            {
+                Console.Clear();
+                Console.WriteLine($"\n\t Admiral {user1.UserName}, we've done it!  The enemy fleet has been sunk.  ");
+                Console.WriteLine("\n\n\t\t..You'll certainly get a star on your chest for this engagement.");
+                victor = user1;
+        
+                winner = true;
+            }
+            if (user2.ShipsSunk == 5)
+            {
+                Console.Clear();
+                Console.WriteLine($"\n\t Admiral {user2.UserName}, we've done it!  The enemy fleet has been sunk.  ");
+                Console.WriteLine("\n\n\t\t..You'll certainly get a star on your chest for this engagement.");
+                victor = user2;
+        
+                winner = true;
+            }
+            return (winner, victor);
+        }
+
         public static void PrintGameRules()
         {
-            string filePath = "C:\\Users\\Randa\\OneDrive\\Desktop\\c#classpractice\\Battleship\\BattleShipGame\\Rules.txt";
+            //string filePath = "C:\\Users\\Randa\\OneDrive\\Desktop\\c#classpractice\\Battleship\\BattleShipGame\\Rules.txt";
+            // For laptop
+            string filePath = "C:\\Users\\Randa\\OneDrive\\Documents\\Github\\BattleShipGame\\Rules.txt";
 
             // Check if the file exists before printing
             if (File.Exists(filePath))
@@ -111,6 +175,7 @@ namespace ConsoleUI
                 counter++;
             }
 
+            Console.WriteLine("\n\n\nShip coordinates recorded..  Press Enter when ready.  ");
             Console.ReadLine();
 
             return shipPlacements;
@@ -178,10 +243,12 @@ namespace ConsoleUI
             return matrix;
         }
 
-        private static void PrintEnemyGrid(List<GridSpot> enemyGrid, GridSpot[,] matrix)
+        private static bool PrintEnemyGrid(List<GridSpot> enemyGrid, GridSpot[,] matrix)
         {
             bool isEnemy = true;
+            bool gameOver = false;
             int rowNumCounter = 1;
+            int sunkCounter = 0;
             Console.Clear();
 
             Console.WriteLine("\n\n\t       --- ENEMY GRID ---\n");
@@ -194,13 +261,22 @@ namespace ConsoleUI
                 {
                     string marker = " ";
                     marker = ReturnTileMarker(matrix, i, j, isEnemy);
+                    if (marker == "X")
+                    {
+                        sunkCounter++;
+                    }
                     Console.Write("|  " + marker + "  ");
                 }
                 Console.WriteLine("");
                 rowNumCounter++;
             }
 
-            //Console.ReadLine();
+            if (sunkCounter == 5)
+            {
+                gameOver = true;
+            }
+
+            return gameOver;
         }
 
         private static void PrintFriendlyGrid(List<GridSpot> friendlyGrid, GridSpot[,] matrix)
@@ -258,7 +334,6 @@ namespace ConsoleUI
         {
             bool isValidPlacement;
             bool isEnemy = true;
-            int counter = 1;
             string gridTile = "";
             // TODO: This is unused, but required for ValidateGridCoordinate.  Fix this later
             List<GridSpot> strCoordinates = new List<GridSpot>();
@@ -288,7 +363,7 @@ namespace ConsoleUI
             return tile;
         }
 
-        private static (GridSpot[,], string) CheckHitOrMiss(GridSpot shot, GridSpot[,] matrix)
+        private static (GridSpot[,], string) CheckHitOrMiss(GridSpot shot, GridSpot[,] matrix, UserModel user)
         {
             //TODO: THIS IS WHERE THE BULLSHIT IS HAPPENING!!!
             string[] letters = { "A", "B", "C", "D", "E" };
@@ -304,25 +379,26 @@ namespace ConsoleUI
                         updatedTile.Status = GridSpotStatus.Hit;
                         matrix[i, j] = updatedTile;
                         output = "HIT";
-                        Console.WriteLine("HIT");
+                        user.ShipsSunk++;
                     }
                     else if (shot.Number == i+1 && shot.Letter == letters[j] && shot.Status == GridSpotStatus.Shot && matrix[i,j].Status == GridSpotStatus.Empty)
                     {
                         updatedTile.Status = GridSpotStatus.Miss;
                         matrix[i, j] = updatedTile;
                         output = "MISS";
-                        Console.WriteLine("MISS");
+                        user.Misses++;
                     }
                     else if (matrix[i, j].Status == GridSpotStatus.Ship)
                     {
                         updatedTile.Status = GridSpotStatus.Ship;
                         matrix[i, j] = updatedTile;
                     }
+                    else if (matrix[i, j].Status == GridSpotStatus.Hit)
+                    {
+                        output = "SUNK";
+                    }
                     else 
                     {
-                        //matrix[i, j].Status = GridSpotStatus.Empty;
-                        //output = "Something";
-                        //Console.WriteLine("Not hittin' or missin'");
                     }
                 }
             }
@@ -337,19 +413,21 @@ namespace ConsoleUI
             if (productOfAttack == "HIT")
             {
                 Console.WriteLine($" Admiral {user.UserName}, That was direct Hit on {tile.Coordinate}! \n");
-                Thread.Sleep(1000);
-                Console.WriteLine(" Prepare for enemy attack!");
             }
             else if (productOfAttack == "MISS")
             {
                 Console.WriteLine($" Admiral {user.UserName}, Our Fire-Mission didn't land!  Updating Grid {tile.Coordinate} as 'Miss'\n");
-                Thread.Sleep(1000);
-                Console.WriteLine(" Prepare for enemy attack!");
+            }
+            else if (productOfAttack == "SUNK")
+            {
+                Console.WriteLine($" Admiral {user.UserName}, We've already sunk this ship, and run out of time..");
             }
             else
             {
                 Console.WriteLine("Not sure what the hell is happening here");
             }
+            Thread.Sleep(1000);
+            Console.WriteLine(" Prepare for enemy attack!");
         }
     }
 }

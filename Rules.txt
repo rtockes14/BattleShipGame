@@ -10,7 +10,6 @@
  Battle Ships is a 2 Player turn based grid-coordinate game.  Each Player has 5 ships in their fleet.  You must race to sink 
  all of the enemy's vessels before you're sunk yourself.  
 
-
  The grid is based on a 5 letter, 5 number system -- A1 being the top left-most corner and E5 being the bottom right-most corner.  
 
 
@@ -29,13 +28,14 @@
 
  You must place 5 ships.  Only 1 ship per tile, and any direct hit will sink a vessel.  
 
-
  When either player hits the final enemy ship, the opposing player will have one last opportunity to fire back.  
 
 
- Press Enter to continue..
+==========================================================================================================================
 
 
-
-"I've just recieved intel showing the enemy is lurking in contested waters.  It's up to you to sink the opposing fleet"  
+"I've just received intel showing the enemy is lurking in contested waters.  It's up to you to sink the opposing fleet"  
  	-Chief Powell of the Joint Forces
+
+
+ Press Enter to continue..

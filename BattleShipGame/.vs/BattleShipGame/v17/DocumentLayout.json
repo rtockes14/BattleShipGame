@@ -42,8 +42,7 @@
               "RelativeToolTip": "BattleshipLibrary\\Enums.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T16:15:22.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T16:15:22.317Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "BattleshipLibrary\\Models\\GridSpot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T16:12:17.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T16:12:17.869Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "BattleshipLibrary\\Models\\UserModel.cs",
               "ToolTip": "C:\\Users\\Randa\\OneDrive\\Documents\\GitHub\\BattleShipGame\\BattleShipGame\\BattleshipLibrary\\Models\\UserModel.cs",
               "RelativeToolTip": "BattleshipLibrary\\Models\\UserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T16:12:17.87Z",
               "EditorCaption": ""
@@ -79,7 +77,7 @@
               "RelativeDocumentMoniker": "ConsoleUI\\Program.cs",
               "ToolTip": "C:\\Users\\Randa\\OneDrive\\Documents\\GitHub\\BattleShipGame\\BattleShipGame\\ConsoleUI\\Program.cs",
               "RelativeToolTip": "ConsoleUI\\Program.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAAwI4AAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAuwP0AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T16:12:17.951Z",
               "EditorCaption": ""

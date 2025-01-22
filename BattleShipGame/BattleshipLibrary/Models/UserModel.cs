@@ -12,6 +12,12 @@ namespace BattleshipLibrary.Models
 
 		public int ShotCounter { get; set; } = 1;
 
+		public int ShipsSunk { get; set; } = 0;
+
+		public int Misses { get; set; } = 0;
+
+		public int ShipsLost { get; set; } = 0;
+
 		private List<GridSpot> _shipLocations;
 
 		private List<GridSpot> _gridSpots; // TODO: Not sure what my plan was for this
