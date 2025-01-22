@@ -192,7 +192,8 @@ namespace ConsoleUI
                 Console.Write($"\t {rowNumCounter} ");
                 for (int j = 0; j < 5; j++)
                 {
-                    string marker = ReturnTileMarker(matrix, i, j, isEnemy);
+                    string marker = " ";
+                    marker = ReturnTileMarker(matrix, i, j, isEnemy);
                     Console.Write("|  " + marker + "  ");
                 }
                 Console.WriteLine("");
@@ -241,7 +242,7 @@ namespace ConsoleUI
                 case GridSpotStatus.Ship:
                     if (isEnemy)
                     {
-                        output = "v"; break; // Change to Blank later
+                        output = " "; break; // Change to Blank later
                     }
                     else
                     {
@@ -291,40 +292,37 @@ namespace ConsoleUI
         {
             //TODO: THIS IS WHERE THE BULLSHIT IS HAPPENING!!!
             string[] letters = { "A", "B", "C", "D", "E" };
-            string output = "MISS";
+            string output = "";
+
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < letters.Length; j++)
                 {
+                    GridSpot updatedTile = new GridSpot();
                     if (shot.Number == i+1 && shot.Letter == letters[j] && shot.Status == GridSpotStatus.Shot && matrix[i,j].Status == GridSpotStatus.Ship)
                     {
-                        matrix[i, j].Status = GridSpotStatus.Hit;
+                        updatedTile.Status = GridSpotStatus.Hit;
+                        matrix[i, j] = updatedTile;
                         output = "HIT";
                         Console.WriteLine("HIT");
                     }
                     else if (shot.Number == i+1 && shot.Letter == letters[j] && shot.Status == GridSpotStatus.Shot && matrix[i,j].Status == GridSpotStatus.Empty)
                     {
-                        matrix[i, j].Status = GridSpotStatus.Miss;
+                        updatedTile.Status = GridSpotStatus.Miss;
+                        matrix[i, j] = updatedTile;
                         output = "MISS";
                         Console.WriteLine("MISS");
                     }
-                    if (matrix[i, j].Status == GridSpotStatus.Empty)
-                    {
-                        matrix[i, j].Status = GridSpotStatus.Empty;
-                    }
-                    else if (matrix[i, j].Status == GridSpotStatus.Miss)
-                    {
-                        matrix[i, j].Status = GridSpotStatus.Miss;
-                    }
                     else if (matrix[i, j].Status == GridSpotStatus.Ship)
                     {
-                        matrix[i, j].Status = GridSpotStatus.Ship;
+                        updatedTile.Status = GridSpotStatus.Ship;
+                        matrix[i, j] = updatedTile;
                     }
                     else 
                     {
                         //matrix[i, j].Status = GridSpotStatus.Empty;
                         //output = "Something";
-                        Console.WriteLine("Not hittin' or missin'");
+                        //Console.WriteLine("Not hittin' or missin'");
                     }
                 }
             }
