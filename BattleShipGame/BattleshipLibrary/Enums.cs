@@ -15,6 +15,7 @@ namespace BattleshipLibrary.Models
 
     public enum TileLetterIndex
     {
+        N = -1,
         A = 0,
         B = 1,
         C = 2,
