@@ -10,7 +10,7 @@ namespace BattleshipLibrary.Models
 
         public string UserName { get; set; }
 
-		public int ShotCounter { get; set; }
+		public int ShotCounter { get; set; } = 1;
 
 		private List<GridSpot> _shipLocations;
 

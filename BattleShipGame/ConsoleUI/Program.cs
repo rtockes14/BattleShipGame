@@ -175,7 +175,6 @@ namespace ConsoleUI
                 }
                 Console.WriteLine();
             }
-            //Console.ReadLine();
             return matrix;
         }
 
@@ -223,7 +222,6 @@ namespace ConsoleUI
                 rowNumCounter++;
             }
             Console.WriteLine("\n");
-            //Console.ReadLine();
         }
 
         private static string ReturnTileMarker(GridSpot[,] matrix, int i, int j, bool isEnemy)
@@ -236,7 +234,6 @@ namespace ConsoleUI
             {
                 case GridSpotStatus.Empty:
                     output = " "; break;
-                        { }
                 case GridSpotStatus.Miss:
                     output = "O"; break;
                 case GridSpotStatus.Hit:
@@ -270,7 +267,7 @@ namespace ConsoleUI
             GridSpot tile = new GridSpot();
             do
             {
-                Console.Write($"\tPlease enter the coordinate of Fire-Mission 'Whiskey-{counter}':\t");
+                Console.Write($"\tPlease enter the coordinate of Fire-Mission 'Whiskey-{user.ShotCounter}':\t");
                 gridTile = Console.ReadLine();
                 isValidPlacement = ValidateGridCoordinate(gridTile, user.ShotsFired, isEnemy);
                 user.ShotsFired.Add(gridTile);
@@ -292,21 +289,42 @@ namespace ConsoleUI
 
         private static (GridSpot[,], string) CheckHitOrMiss(GridSpot shot, GridSpot[,] matrix)
         {
+            //TODO: THIS IS WHERE THE BULLSHIT IS HAPPENING!!!
             string[] letters = { "A", "B", "C", "D", "E" };
-            string output = "";
+            string output = "MISS";
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < letters.Length; j++)
                 {
-                    if (shot.Number == i+1 && shot.Letter == letters[j] && matrix[i,j].Status == GridSpotStatus.Ship)
+                    if (shot.Number == i+1 && shot.Letter == letters[j] && shot.Status == GridSpotStatus.Shot && matrix[i,j].Status == GridSpotStatus.Ship)
                     {
                         matrix[i, j].Status = GridSpotStatus.Hit;
                         output = "HIT";
+                        Console.WriteLine("HIT");
                     }
-                    else
+                    else if (shot.Number == i+1 && shot.Letter == letters[j] && shot.Status == GridSpotStatus.Shot && matrix[i,j].Status == GridSpotStatus.Empty)
                     {
                         matrix[i, j].Status = GridSpotStatus.Miss;
                         output = "MISS";
+                        Console.WriteLine("MISS");
+                    }
+                    if (matrix[i, j].Status == GridSpotStatus.Empty)
+                    {
+                        matrix[i, j].Status = GridSpotStatus.Empty;
+                    }
+                    else if (matrix[i, j].Status == GridSpotStatus.Miss)
+                    {
+                        matrix[i, j].Status = GridSpotStatus.Miss;
+                    }
+                    else if (matrix[i, j].Status == GridSpotStatus.Ship)
+                    {
+                        matrix[i, j].Status = GridSpotStatus.Ship;
+                    }
+                    else 
+                    {
+                        //matrix[i, j].Status = GridSpotStatus.Empty;
+                        //output = "Something";
+                        Console.WriteLine("Not hittin' or missin'");
                     }
                 }
             }
@@ -324,11 +342,15 @@ namespace ConsoleUI
                 Thread.Sleep(1000);
                 Console.WriteLine(" Prepare for enemy attack!");
             }
-            else
+            else if (productOfAttack == "MISS")
             {
                 Console.WriteLine($" Admiral {user.UserName}, Our Fire-Mission didn't land!  Updating Grid {tile.Coordinate} as 'Miss'\n");
                 Thread.Sleep(1000);
                 Console.WriteLine(" Prepare for enemy attack!");
+            }
+            else
+            {
+                Console.WriteLine("Not sure what the hell is happening here");
             }
         }
     }

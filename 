@@ -1,0 +1,55 @@
+[33mcommit 320158e724c63d2ef44471da5c040b59ec69d038[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: rtockes14 <randalltockes@gmail.com>
+Date:   Tue Jan 21 19:32:51 2025 -0600
+
+    Numerous fixes to enemy grid layout/marker processing
+
+[33mcommit 6df3c483e6994a2dfdbee984c60c15b86026f1d3[m
+Author: rtockes14 <149973960+rtockes14@users.noreply.github.com>
+Date:   Tue Jan 21 10:55:22 2025 -0600
+
+    CheckHitOrMiss updated to ReturnMarker and reappropriated for other method
+
+[33mcommit 78b409f1382c7ae6d625f6ec9d981d3ad4c8fa08[m
+Author: rtockes14 <149973960+rtockes14@users.noreply.github.com>
+Date:   Mon Jan 20 14:03:13 2025 -0600
+
+    Updates to Program Matrix building
+
+[33mcommit 31f628b303a29188816b5408b4805cce66eae1c4[m
+Author: Randall <randalltockes@gmail.com>
+Date:   Mon Jan 20 10:04:11 2025 -0600
+
+    BattleShipGame Github-Initial
+
+[33mcommit 2ef7f010bd31575b9918942546f50fb7fc7e7664[m
+Author: rtockes14 <randalltockes@gmail.com>
+Date:   Sat Jan 18 22:59:06 2025 -0600
+
+    Added ship placement validation and GetUserInfo() tweaks
+
+[33mcommit 9399675e7e62dd590371cf820b9cea6f44e0fe55[m
+Author: rtockes14 <randalltockes@gmail.com>
+Date:   Thu Jan 16 19:44:39 2025 -0600
+
+    Adding Rules and Updated Methods/Properties in Game
+
+[33mcommit 84b27fefd8cb2d360672224ed169c0927a3cc659[m
+Author: rtockes14 <randalltockes@gmail.com>
+Date:   Thu Jan 16 14:23:56 2025 -0600
+
+    actually adding the stuff
+
+[33mcommit 52986f42668cae0d17fbae202950c7dc9a4f576a[m
+Author: rtockes14 <rrrandolphhh@DESKTOP-83M0H98.localdomain>
+Date:   Thu Jan 16 14:21:33 2025 -0600
+
+    Added List suggestions
+
+[33mcommit a8e00318fd2b192b918def6df823e8667dc668c4[m[33m ([m[1;32mNewFeature[m[33m)[m
+Author: rtockes14 <rrrandolphhh@DESKTOP-83M0H98.localdomain>
+Date:   Wed Jan 15 20:16:05 2025 -0600
+
+    Planning files / Outlines
+    
+    Just adding some necessary documentation for the plans moving forward
